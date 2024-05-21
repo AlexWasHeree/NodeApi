@@ -1,5 +1,13 @@
-const http = require('http');
-const app = require('./app');
+import express from 'express';
+
+const app = express();
+
+app.use(express.json());
+
+//CONFIGURE CORS
+
 const port = process.env.PORT || 3000;
-const server = http.createServer(app);
-server.listen(port);
+
+app.listen(8000, function () {
+  console.log('Running on port -' + port);
+});
